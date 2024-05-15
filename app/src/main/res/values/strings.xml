@@ -5,4 +5,12 @@
     <string name="bloco_jogo">Bloco do jogo</string>
     <string name="ampulheta">ampulheta</string>
     <string name="nome">Jogo da Velha</string>
+    <string name="voltar">Voltar</string>
+    <string name="Profile" />
+    <string name="back_button_description" />
+    <string name="nome_do_usuario">Nome do Usuário</string>
+    <string name="partidasJogadas">Texto 4</string>
+    <string name="vitorias">Texto 3</string>
+    <string name="amigos">Texto 2</string>
+    <string name="ranking">Texto 1</string>
 </resources>
