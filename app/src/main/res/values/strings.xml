@@ -2,4 +2,7 @@
     <string name="app_name">Jogo-da-velha-2</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bloco_jogo">Bloco do jogo</string>
+    <string name="ampulheta">ampulheta</string>
+    <string name="nome">Jogo da Velha</string>
 </resources>
