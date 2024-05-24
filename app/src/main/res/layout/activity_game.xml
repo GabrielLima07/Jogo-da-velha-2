@@ -58,45 +58,45 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp"
 
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
                 <ImageButton
                     android:id="@+id/imageButton2"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
                 <ImageButton
                     android:id="@+id/imageButton3"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
                 <ImageButton
                     android:id="@+id/imageButton4"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
                 <ImageButton
                     android:id="@+id/imageButton5"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
             </TableRow>
 
@@ -112,44 +112,45 @@
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
                 <ImageButton
                     android:id="@+id/imageButton7"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
                 <ImageButton
                     android:id="@+id/imageButton8"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
                 <ImageButton
                     android:id="@+id/imageButton9"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
+
                 <ImageButton
                     android:id="@+id/imageButton10"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
             </TableRow>
 
 
@@ -165,46 +166,46 @@
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
                 <ImageButton
                     android:id="@+id/imageButton12"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
                 <ImageButton
                     android:id="@+id/imageButton13"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
+                    android:background="#00FFFFFF"
 
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
                 <ImageButton
                     android:id="@+id/imageButton14"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
                 <ImageButton
                     android:id="@+id/imageButton15"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
             </TableRow>
 
             <TableRow
@@ -219,46 +220,46 @@
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
                 <ImageButton
                     android:id="@+id/imageButton17"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
                 <ImageButton
                     android:id="@+id/imageButton18"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
+                    android:background="#00FFFFFF"
 
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
                 <ImageButton
                     android:id="@+id/imageButton19"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
                 <ImageButton
                     android:id="@+id/imageButton20"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
             </TableRow>
 
             <TableRow
@@ -273,45 +274,45 @@
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
                 <ImageButton
                     android:id="@+id/imageButton22"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
                 <ImageButton
                     android:id="@+id/imageButton23"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
                 <ImageButton
                     android:id="@+id/imageButton24"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
 
                 <ImageButton
                     android:id="@+id/imageButton25"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:background="none"
-                    app:srcCompat="@drawable/retangulo"
-                    android:contentDescription="@string/bloco_jogo"/>
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/bloco_jogo"
+                    app:srcCompat="@drawable/retangulo" />
             </TableRow>
         </TableLayout>
 

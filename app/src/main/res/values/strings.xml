@@ -13,4 +13,6 @@
     <string name="vitorias">Texto 3</string>
     <string name="amigos">Texto 2</string>
     <string name="ranking">Texto 1</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="email_hint">example@gmail.com</string>
 </resources>
