@@ -1,18 +1,22 @@
 package com.example.jogo_da_velha_2.activities;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.jogo_da_velha_2.R;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import com.parse.ParseException;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
+
 
 public class SignUp extends AppCompatActivity {
 
@@ -32,15 +36,16 @@ public class SignUp extends AppCompatActivity {
     }
 
     private void signUp() {
-        Intent i = new Intent(this, Login.class);
 
         signupbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String nickname = suNickname.getText().toString().trim();
+                String email = suEmail.getText().toString().trim();
+                String password = suPassword.getText().toString().trim();
+
                 if (validateInputs()) {
-                    // Enviar os dados para o backend
-                    sendSignUpRequest();
-                    startActivity(i);
+                    sendSignUpRequest(nickname, password, email);
                 }
             }
         });
@@ -93,9 +98,40 @@ public class SignUp extends AppCompatActivity {
         return true;
     }
 
-    //TODO: add request ao back
-    private void sendSignUpRequest() {
-        Toast toast = Toast.makeText(this, "Cadastro realizado com sucesso!", Toast.LENGTH_LONG);
-        toast.show();
+    private void sendSignUpRequest(String username, String password, String email) {
+        ParseUser user = new ParseUser();
+
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setEmail(email);
+
+        user.signUpInBackground(new SignUpCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e == null) {
+                    showAlert("Cadastro realizado!", "Bem-vindo " + username +"!");
+                } else {
+                    ParseUser.logOut();
+                    Toast.makeText(SignUp.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    private void showAlert(String title,String message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(SignUp.this)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                        Intent intent = new Intent(SignUp.this, MainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                    }
+                });
+        AlertDialog ok = builder.create();
+        ok.show();
     }
 }
