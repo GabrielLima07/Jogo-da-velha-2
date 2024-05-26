@@ -39,10 +39,10 @@
             android:name=".activities.Profile"
             android:exported="false" />
         <activity
-            android:name=".activities.Login"
+            android:name=".activities.SignUp"
             android:exported="false" />
         <activity
-            android:name=".activities.SignUp"
+            android:name=".activities.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

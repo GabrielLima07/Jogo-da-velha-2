@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.jogo_da_velha_2.R;
 import java.util.regex.Matcher;
@@ -31,8 +32,20 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        loginActivityLink();
         startViews();
         signUp();
+    }
+
+    private void loginActivityLink() {
+        Intent i = new Intent(SignUp.this, Login.class);
+        TextView link = findViewById(R.id.loginActivityLink);
+        link.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(i);
+            }
+        });
     }
 
     private void signUp() {
