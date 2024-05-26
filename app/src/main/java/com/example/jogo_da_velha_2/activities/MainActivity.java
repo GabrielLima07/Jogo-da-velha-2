@@ -1,15 +1,17 @@
 package com.example.jogo_da_velha_2.activities;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import com.example.jogo_da_velha_2.R;
+import com.parse.ParseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +23,20 @@ public class MainActivity extends AppCompatActivity {
         profile();
         play();
         ranking();
+        logout();
+    }
+
+    private void logout() {
+        Button logout = findViewById(R.id.logoutBtn);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ParseUser.logOutInBackground(e -> {
+                    if (e == null)
+                       showAlert("Logout realizado", "Até a próxima...");
+                });
+            }
+        });
     }
 
     private void ranking() {
@@ -68,5 +84,22 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    private void showAlert(String title,String message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                        Intent intent = new Intent(MainActivity.this, Login.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                    }
+                });
+        AlertDialog ok = builder.create();
+        ok.show();
     }
 }

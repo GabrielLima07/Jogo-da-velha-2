@@ -47,7 +47,7 @@
                 android:layout_gravity="center"
                 android:text="Nickname"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/suNickname"
@@ -60,7 +60,7 @@
                 android:inputType="text"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#80FFFFFF"
-                android:textSize="14sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -81,7 +81,7 @@
                 android:layout_gravity="center"
                 android:text="Senha"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/suPassword"
@@ -94,7 +94,7 @@
                 android:inputType="textPassword"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#80FFFFFF"
-                android:textSize="14sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -115,7 +115,7 @@
                 android:layout_gravity="center"
                 android:text="Confirme sua senha"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/suPasswordConfirm"
@@ -128,7 +128,7 @@
                 android:inputType="textPassword"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#80FFFFFF"
-                android:textSize="14sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -149,7 +149,7 @@
                 android:layout_gravity="center"
                 android:text="Email"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/suEmail"
@@ -162,7 +162,7 @@
                 android:inputType="textEmailAddress"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#80FFFFFF"
-                android:textSize="14sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <TextView
@@ -186,11 +186,42 @@
             android:layout_marginTop="4dp"
             android:text="Preencha os campos abaixo"
             android:textColor="#FFFFFF"
-            android:textSize="16dp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.167"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="113dp"
+            android:textColor="#FFFFFF"
+            android:text="Já tem uma conta?"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/signupbtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.119"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+            app:layout_constraintVertical_bias="0.519" />
+
+        <TextView
+            android:id="@+id/loginActivityLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clique aqui"
+            android:textColor="#ff6750a4"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/signupbtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.034"
+            app:layout_constraintStart_toEndOf="@+id/textView13"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+            app:layout_constraintVertical_bias="0.154" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>
