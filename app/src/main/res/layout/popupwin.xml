@@ -7,29 +7,25 @@
     android:layout_margin="25dp"
     android:background="@drawable/popupbackground"
     >
-
     <Button
         android:id="@+id/buttonx"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="16dp"
         android:backgroundTint="#FFFFFF"
-        android:text="X"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:textSize="35dp" />
-
+        android:drawableLeft="@drawable/close"
+        android:textColor="#000000" />
     <Button
         android:id="@+id/buttonshare"
-        android:layout_width="76dp"
+        android:layout_width="89dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="274dp"
+        android:layout_marginStart="255dp"
         android:backgroundTint="#FFFFFF"
-        android:drawableLeft="@drawable/sharing_resized"
-        android:textColor="#000000"
-        android:textSize="30dp" />
+        android:drawableLeft="@drawable/share"
+        android:textColor="#000000" />
+
+
 
     <ImageView
         android:id="@+id/trophywin"
