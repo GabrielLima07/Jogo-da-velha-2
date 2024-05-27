@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.jogo_da_velha_2.R;
 
@@ -19,13 +20,15 @@ public class Loading extends AppCompatActivity {
     }
 
     private void backBtn() {
-        Button voltar = findViewById(R.id.button3);
+        ImageButton voltar = findViewById(R.id.button3);
+        Button cancelar = findViewById(R.id.button4);
 
         voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
+
         });
     }
 }
