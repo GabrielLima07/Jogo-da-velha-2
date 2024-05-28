@@ -16,7 +16,6 @@
     tools:context=".activities.Ranking">
 
 
-
     <ImageButton
         android:id="@+id/button"
         android:layout_width="37dp"
@@ -28,7 +27,6 @@
         android:background="@android:color/transparent"
         android:backgroundTint="#FDFDFD"
         android:contentDescription="@string/back_button_description"
-        android:onClick="backBtn"
         android:src="@mipmap/flechaicon_foreground"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,6 +36,7 @@
         app:layout_constraintVertical_bias="0.058"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
         tools:src="@mipmap/flechaicon_foreground" />
+
 
     <TextView
         android:id="@+id/textView3"
@@ -51,18 +50,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.327" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Voltar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.168" />
+    
 
     <LinearLayout
         android:id="@+id/linearLayout"
