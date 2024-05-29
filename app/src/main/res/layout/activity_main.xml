@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EFA941"
+    android:id="@+id/mainLayout"
     tools:context=".activities.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,7 +35,7 @@
                 android:layout_marginLeft="48dp"
                 android:layout_marginTop="12dp"
                 android:text="Username"
-                android:textSize="12sp" />
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
@@ -51,8 +52,8 @@
 
                 <ImageView
                     android:id="@+id/imageView4"
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
                     android:layout_marginLeft="48dp"
                     android:layout_marginTop="2dp"
                     app:srcCompat="@drawable/trophy" />
@@ -64,7 +65,7 @@
                     android:layout_marginLeft="4dp"
                     android:layout_marginTop="0dp"
                     android:text="56"
-                    android:textSize="12sp" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
 

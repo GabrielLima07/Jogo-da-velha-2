@@ -122,7 +122,7 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void done(ParseException e) {
                 if (e == null) {
-                    showAlert("Cadastro realizado!", "Bem-vindo " + username +"!");
+                    showAlert("Cadastro realizado!", "Agora basta logar " + username +":)");
                 } else {
                     ParseUser.logOut();
                     Toast.makeText(SignUp.this, e.getMessage(), Toast.LENGTH_LONG).show();
@@ -139,7 +139,7 @@ public class SignUp extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
-                        Intent intent = new Intent(SignUp.this, MainActivity.class);
+                        Intent intent = new Intent(SignUp.this, Login.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
                     }
