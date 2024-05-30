@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="400dp"
+    android:gravity="center"
+    android:layout_margin="25dp"
+    android:background="@drawable/popupbackground"
+    >
+
+    <Button
+        android:id="@+id/buttonx"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="2dp"
+        android:backgroundTint="#FFFFFF"
+        android:text="X"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="35dp" />
+
+    <Button
+        android:id="@+id/buttonshare"
+        android:layout_width="89dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="255dp"
+        android:backgroundTint="#FFFFFF"
+        android:drawableLeft="@drawable/share"
+        android:textColor="#000000" />
+
+    <ImageView
+        android:id="@+id/trophywin"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/buttonx"
+        android:src="@drawable/trophydrawn"
+        />
+
+    <TextView
+        android:id="@+id/resultgame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Empate"
+        android:textSize="50sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/trophywin"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_below="@+id/resultgame"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="22dp"
+
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:text="Continue"
+        android:textSize="16dp" />
+
+
+</RelativeLayout>
