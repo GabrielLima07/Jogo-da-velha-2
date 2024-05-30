@@ -1,50 +1,80 @@
 package com.example.jogo_da_velha_2.activities;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.provider.MediaStore;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jogo_da_velha_2.R;
+import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 public class Profile extends AppCompatActivity {
-    private TextView partidasJogadas;
-    private TextView userName;
-    private TextView winCount;
-    private TextView ranking;
-    private TextView amigos;
     private ImageView profilePic;
+    private TextView partidasJogadas, userName, winCount, ranking, amigos;
+
+    private final ActivityResultLauncher<String> requestPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    openImageChooser();
+                } else {
+                    Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+    private final ActivityResultLauncher<Intent> pickImageLauncher =
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+                if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                    Uri imageUri = result.getData().getData();
+                    try {
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
+                        profilePic.setImageBitmap(bitmap);
+                        uploadImageToServer(bitmap);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        Toast.makeText(Profile.this, "Erro ao carregar a imagem", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
         ParseUser currentUser = ParseUser.getCurrentUser();
         String userId = currentUser.getObjectId();
         backBtn();
         getUserDetails(userId);
+        setupEditButton();
     }
 
     private void backBtn() {
         ImageButton voltar = findViewById(R.id.button);
-
-        voltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        voltar.setOnClickListener(v -> finish());
     }
+
     private void getUserDetails(String objectId) {
         partidasJogadas = findViewById(R.id.partidasJogadas);
         userName = findViewById(R.id.user_name);
@@ -52,8 +82,8 @@ public class Profile extends AppCompatActivity {
         ranking = findViewById(R.id.ranking);
         amigos = findViewById(R.id.amigos);
         profilePic = findViewById(R.id.profile_pic);
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("_User");
 
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("_User");
         query.getInBackground(objectId, (object, e) -> {
             if (e == null) {
                 if (object != null) {
@@ -81,4 +111,50 @@ public class Profile extends AppCompatActivity {
         });
     }
 
+    private void setupEditButton() {
+        ImageButton editButton = findViewById(R.id.editButton);
+        editButton.setOnClickListener(v -> checkPermissionAndOpenImageChooser());
+    }
+
+    private void checkPermissionAndOpenImageChooser() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED) {
+            openImageChooser();
+        } else {
+            requestPermissionLauncher.launch(Manifest.permission.READ_MEDIA_IMAGES);
+        }
+    }
+
+    private void openImageChooser() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        pickImageLauncher.launch(intent);
+    }
+
+    private void uploadImageToServer(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+
+        ParseFile file = new ParseFile("profile_pic.jpg", byteArray);
+        file.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e == null) {
+                    ParseUser user = ParseUser.getCurrentUser();
+                    user.put("profilePic", file);
+                    user.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if (e == null) {
+                                Toast.makeText(Profile.this, "Foto do perfil atualizada com sucesso!", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(Profile.this, "Erro ao salvar a foto: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+                } else {
+                    Toast.makeText(Profile.this, "Erro ao fazer upload da foto: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
 }

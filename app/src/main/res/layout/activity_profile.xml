@@ -52,17 +52,31 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.125">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="250dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/editButton"
+                    android:layout_width="45dp"
+                    android:layout_height="40dp"
+                    android:backgroundTint="#00FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cardView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@mipmap/edit_foreground"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"
-                    app:cardCornerRadius="250dp">
+                    app:cardCornerRadius="250dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="6dp">
 
                     <ImageView
                         android:id="@+id/profile_pic"
@@ -72,10 +86,9 @@
                         android:scaleType="centerCrop"
                         android:src="@mipmap/profile_pic_round"
                         tools:ignore="VisualLintBounds" />
-
                 </androidx.cardview.widget.CardView>
 
-            </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:id="@+id/user_name"
@@ -86,7 +99,10 @@
                 android:text="@string/nome_do_usuario"
                 android:textColor="?android:attr/textColorSecondary"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
 
         </LinearLayout>
 
@@ -114,10 +130,12 @@
                     android:id="@+id/imageView4"
                     android:layout_width="180dp"
                     android:layout_height="82dp"
+                    android:backgroundTint="#00FFFFFF"
                     android:importantForAccessibility="no"
                     android:paddingStart="50dp"
                     android:paddingEnd="50dp"
-                    android:src="@mipmap/sword_foreground" />
+                    android:src="@mipmap/sword_foreground"
+                    tools:ignore="VisualLintBounds" />
 
                 <TextView
                     android:id="@+id/partidasJogadas"
