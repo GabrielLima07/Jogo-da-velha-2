@@ -47,8 +47,6 @@ public class Ranking extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Ranking.this, Login.class);
-                startActivity(intent);
                 finish();
             }
         });
@@ -86,7 +84,7 @@ public class Ranking extends AppCompatActivity {
                             textViewsPontuacao[3].setText(String.valueOf(obj.getInt("points")));
                             break;
                         case 4:
-                            textViewsRank[4].setText(obj.getInt("placing"));
+                            textViewsRank[4].setText(obj.getString("placing"));
                             textViewsNome[4].setText(obj.getString("user"));
                             textViewsPontuacao[4].setText(String.valueOf(obj.getInt("points")));
                             break;
