@@ -47,8 +47,6 @@ public class Ranking extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Ranking.this, Login.class);
-                startActivity(intent);
                 finish();
             }
         });
