@@ -57,36 +57,36 @@ public class Ranking extends AppCompatActivity {
 
     private void carregarDadosRanking() {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Ranking");
-        query.orderByAscending("placing"); // Ordena os resultados pela colocação
-        query.setLimit(5); // Limita a consulta a 5 resultados
+        query.orderByAscending("placing");
+        query.setLimit(5); 
         query.findInBackground((objects, e) -> {
             if (e == null) {
                 for (int i = 0; i < objects.size(); i++) {
                     ParseObject obj = objects.get(i);
-                    // Atualizar os TextViews com os dados do ParseObject
+                   
                     switch (i) {
                         case 0:
-                            textViewsRank[0].setText(obj.getString("placing") + "°");
+                            textViewsRank[0].setText(obj.getString("placing"));
                             textViewsNome[0].setText(obj.getString("user"));
-                            textViewsPontuacao[0].setText(String.valueOf(obj.getBoolean("points")));
+                            textViewsPontuacao[0].setText(String.valueOf(obj.getInt("points")));
                             break;
                         case 1:
-                            textViewsRank[1].setText(obj.getString("placing") + "°");
+                            textViewsRank[1].setText(obj.getString("placing"));
                             textViewsNome[1].setText(obj.getString("user"));
-                            textViewsPontuacao[1].setText(String.valueOf(obj.getBoolean("points")));
+                            textViewsPontuacao[1].setText(String.valueOf(obj.getInt("points")));
                             break;
                         case 2:
-                            textViewsRank[2].setText(obj.getString("placing") + "°");
+                            textViewsRank[2].setText(obj.getString("placing"));
                             textViewsNome[2].setText(obj.getString("user"));
-                            textViewsPontuacao[2].setText(String.valueOf(obj.getBoolean("points")));
+                            textViewsPontuacao[2].setText(String.valueOf(obj.getInt("points")));
                             break;
                         case 3:
-                            textViewsRank[3].setText(obj.getString("placing") + "°");
+                            textViewsRank[3].setText(obj.getString("placing"));
                             textViewsNome[3].setText(obj.getString("user"));
-                            textViewsPontuacao[3].setText(String.valueOf(obj.getBoolean("points")));
+                            textViewsPontuacao[3].setText(String.valueOf(obj.getInt("points")));
                             break;
                         case 4:
-                            textViewsRank[4].setText(obj.getInt("placing") + "°");
+                            textViewsRank[4].setText(obj.getInt("placing"));
                             textViewsNome[4].setText(obj.getString("user"));
                             textViewsPontuacao[4].setText(String.valueOf(obj.getInt("points")));
                             break;
