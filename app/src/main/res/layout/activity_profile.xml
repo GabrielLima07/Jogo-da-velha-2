@@ -88,6 +88,17 @@
                         tools:ignore="VisualLintBounds" />
                 </androidx.cardview.widget.CardView>
 
+                <ImageButton
+                    android:id="@+id/cameraButton"
+                    android:layout_width="45dp"
+                    android:layout_height="40dp"
+                    android:backgroundTint="#00FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/cardView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@mipmap/camera_foreground" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
