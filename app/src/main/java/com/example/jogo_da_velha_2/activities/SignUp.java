@@ -147,4 +147,7 @@ public class SignUp extends AppCompatActivity {
         AlertDialog ok = builder.create();
         ok.show();
     }
+
+    public static class PopUpWin {
+    }
 }

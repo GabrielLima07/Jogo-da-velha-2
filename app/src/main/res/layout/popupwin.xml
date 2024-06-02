@@ -6,6 +6,7 @@
     android:gravity="center"
     android:layout_margin="25dp"
     android:background="@drawable/popupbackground"
+    android:id="@+id/popup_view"
     >
     <Button
         android:id="@+id/buttonx"
@@ -49,6 +50,7 @@
         />
 
     <Button
+        android:id="@+id/buttonContinue"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_below="@+id/resultgame"
@@ -58,7 +60,6 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="22dp"
-
         android:layout_marginBottom="20dp"
         android:backgroundTint="@android:color/darker_gray"
         android:text="Continue"
