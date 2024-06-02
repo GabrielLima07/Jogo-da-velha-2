@@ -23,9 +23,21 @@ public class GameResultWin extends AppCompatActivity {
         popupBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDialog.setContentView(R.layout.popupwin);
-                mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                showPopUpWin();
+
             }
         });
+    }
+    private void showPopUpWin() {
+        mDialog.setContentView(R.layout.popupwin);
+        Button buttonX = mDialog.findViewById(R.id.buttonx);
+        buttonX.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDialog.dismiss();
+            }
+        });
+        mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        mDialog.show();
     }
 }
