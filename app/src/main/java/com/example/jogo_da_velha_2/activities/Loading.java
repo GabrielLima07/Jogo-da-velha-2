@@ -39,6 +39,18 @@ public class Loading extends AppCompatActivity {
             }
 
         });
+
+        cancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hasGameStarted = true;
+        
+                Intent intent = new Intent(Loading.this, TelaInicial.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void startCheckingMatchStatus() {
