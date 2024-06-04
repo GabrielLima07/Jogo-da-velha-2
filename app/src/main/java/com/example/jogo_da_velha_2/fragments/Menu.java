@@ -1,5 +1,7 @@
 package com.example.jogo_da_velha_2.fragments;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,10 +9,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.jogo_da_velha_2.R;
+import com.example.jogo_da_velha_2.activities.Login;
+import com.example.jogo_da_velha_2.activities.MainActivity;
+import com.example.jogo_da_velha_2.activities.Ranking;
+import com.parse.ParseUser;
 
 import java.util.Objects;
 
@@ -31,6 +39,7 @@ public class Menu extends Fragment {
         View view = inflater.inflate(R.layout.fragment_menu, container, false);
 
         finishFragement(view);
+        ranking(view);
 
         return view;
     }
@@ -46,4 +55,16 @@ public class Menu extends Fragment {
             }
         });
     }
+
+    private void ranking(View view) {
+        TextView rankingBtn = view.findViewById(R.id.menuRanking);
+        rankingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Ranking.class);
+                startActivity(intent);
+            }
+        });
+    }
+
 }

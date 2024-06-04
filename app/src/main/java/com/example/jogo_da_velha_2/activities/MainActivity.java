@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private ShapeableImageView profilePic;
     private TextView username;
     private TextView winCount;
+    private String newMatchId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,15 +76,18 @@ public class MainActivity extends AppCompatActivity {
     private void play() {
         Button play_btn = findViewById(R.id.playBtn);
 
-        Intent i = new Intent(this, Loading.class);
-
         play_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 findAndJoinMatch();
-                startActivity(i);
             }
         });
+    }
+
+    private void startLoadingActivity() {
+        Intent i = new Intent(MainActivity.this, Loading.class);
+        i.putExtra("matchId", newMatchId);
+        startActivity(i);
     }
 
     private void profile() {
@@ -165,13 +169,17 @@ public class MainActivity extends AppCompatActivity {
             if (e == null) {
                 ParseObject match = new ParseObject("Match");
                 match.put("player_x", ParseUser.getCurrentUser());
+                match.put("current_player_id", ParseUser.getCurrentUser().getObjectId());
                 match.put("state", false);
                 match.put("table", table);
+                match.put("boardState", new ArrayList<>(Collections.nCopies(25, "")));
                 table.put("match", match);
 
                 match.saveInBackground(e1 -> {
                     if (e1 == null) {
                         Log.d("Match", "Match criada");
+                        newMatchId = match.getObjectId();
+                        startLoadingActivity();
                     } else {
                         Log.d("Match", "Match não criada!");
                         e1.printStackTrace();
@@ -217,6 +225,8 @@ public class MainActivity extends AppCompatActivity {
                     match.saveInBackground(e1 -> {
                         if (e1 == null) {
                             Log.d("Match", "player_o adicionado");
+                            newMatchId = matchId;
+                            startLoadingActivity();
                         } else {
                             Log.d("Match", "player_o não adicionado");
                             e1.printStackTrace();
