@@ -1,16 +1,24 @@
 package com.example.jogo_da_velha_2.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,11 +26,17 @@ import com.example.jogo_da_velha_2.R;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Game extends AppCompatActivity {
+    public static String gameResult;
+    Dialog mDialog;
     ImageButton seta;
     private ImageButton[][] boardButtons;
     private String[][] board;
@@ -43,7 +57,7 @@ public class Game extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
+        mDialog = new Dialog(this);
         seta();
 
         timer = findViewById(R.id.timer);
@@ -144,6 +158,7 @@ public class Game extends AppCompatActivity {
         }
 
         this.roundCount++;
+
 
         checkAndHandleGameEnd();
 
@@ -314,23 +329,19 @@ public class Game extends AppCompatActivity {
     private void showGameEndDialog(String winnerId, boolean isDraw) {
         ParseUser currentUser = ParseUser.getCurrentUser();
         String currentUserId = currentUser.getObjectId();
-        String message;
+
 
         if (isDraw) {
-            message = "O jogo terminou em empate!";
+            gameResult = "draw";
         } else if (winnerId.equals(currentUserId)) {
-            message = "Parabéns! Você ganhou!";
-        } else {
-            message = "Você perdeu!";
-        }
 
-        new AlertDialog.Builder(Game.this)
-                .setTitle("Fim do jogo")
-                .setMessage(message)
-                .setPositiveButton("OK", (dialog, which) -> {
-                    startActivity(new Intent(Game.this, MainActivity.class).putExtra("objectId", currentUserId));
-                })
-                .show();
+            gameResult = "win";
+        } else {
+
+            gameResult = "defeat";
+        }
+        showPopUp();
+
     }
 
     private void checkAndHandleGameEnd() {
@@ -346,13 +357,14 @@ public class Game extends AppCompatActivity {
 
     private void postDraw() {
         if (matchObject != null) {
-            matchObject.put("winner", "draw");
+            matchObject.put("winner", null);
             matchObject.saveInBackground(e -> {
                 if (e == null) {
                     Log.d("postDraw", "Draw saved");
 
                     incrementUserStats(playerXId, false);
                     incrementUserStats(playerOId, false);
+                    notifyPlayers(ParseUser.getCurrentUser());
                 } else {
                     e.printStackTrace();
                 }
@@ -408,6 +420,87 @@ public class Game extends AppCompatActivity {
                 e.printStackTrace();
             }
         });
+    }
+    private void showPopUp() {
+        if(gameResult.equals("win")){
+            mDialog.setContentView(R.layout.popupwin);
+        } else if (gameResult.equals("defeat")) {
+            mDialog.setContentView(R.layout.popupdefeat);
+        }else if(gameResult.equals("draw")){
+            mDialog.setContentView(R.layout.popupdrawn);
+        }
+
+        Button buttonX = mDialog.findViewById(R.id.buttonx);
+        Button buttonShare = mDialog.findViewById(R.id.buttonCompartilhar);
+        Button buttonContinue = mDialog.findViewById(R.id.buttonContinue);
+        Intent i = new Intent(this, MainActivity.class);
+        i.putExtra("objectId",ParseUser.getCurrentUser().getObjectId());
+
+        buttonContinue.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(i);
+            }
+        });
+        buttonX.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDialog.dismiss();
+            }
+        });
+
+        buttonShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                takeScreenshot();
+            }
+        });
+
+        mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        mDialog.show();
+    }
+
+    private void takeScreenshot() {
+        View rootView = getWindow().getDecorView().getRootView();
+        rootView.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(rootView.getDrawingCache());
+        rootView.setDrawingCacheEnabled(false);
+
+        saveScreenshot(bitmap);
+    }
+
+    private void saveScreenshot(Bitmap bitmap) {
+        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString() + "/Screenshots";
+        File dir = new File(path);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+
+        String fileName = "screenshot_" + System.currentTimeMillis() + ".png";
+        File file = new File(dir, fileName);
+
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 90, fos);
+            fos.flush();
+            fos.close();
+            Toast.makeText(Game.this, "Screenshot saved: " + file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+
+            // Share the screenshot
+            shareScreenshot(file);
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(Game.this, "Error saving screenshot", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void shareScreenshot(File file) {
+        Uri uri = FileProvider.getUriForFile(this, getPackageName() + ".provider", file);
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("image/*");
+        intent.putExtra(Intent.EXTRA_STREAM, uri);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivity(Intent.createChooser(intent, "Share Screenshot"));
     }
 
 }

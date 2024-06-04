@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="350dp"
     android:layout_height="400dp"
+    android:gravity="center"
     android:layout_margin="25dp"
-
     android:background="@drawable/popupbackground"
-    android:gravity="center">
-
+    android:id="@+id/popup_view"
+    >
     <Button
         android:id="@+id/buttonx"
         android:layout_width="wrap_content"
@@ -16,9 +17,9 @@
         android:backgroundTint="#FFFFFF"
         android:drawableLeft="@drawable/close"
         android:textColor="#000000" />
-
     <Button
-        android:id="@+id/buttonshare"
+
+        android:id="@+id/buttonCompartilhar"
         android:layout_width="89dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="255dp"
@@ -26,26 +27,31 @@
         android:drawableLeft="@drawable/share"
         android:textColor="#000000" />
 
+
+
     <ImageView
         android:id="@+id/trophywin"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_below="@+id/buttonx"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-        android:src="@drawable/trophybroken" />
+        android:layout_below="@+id/buttonx"
+        android:src="@drawable/trophybroken"
+        />
 
     <TextView
         android:id="@+id/resultgame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/trophywin"
+        android:text="Derrota"
+        android:textSize="50sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-        android:text="Derrota"
-        android:textSize="50sp" />
+        android:layout_below="@+id/trophywin"
+        />
 
     <Button
+        android:id="@+id/buttonContinue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/resultgame"
@@ -58,7 +64,9 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@android:color/darker_gray"
         android:text="Continue"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+
+        />
 
 
 </RelativeLayout>
