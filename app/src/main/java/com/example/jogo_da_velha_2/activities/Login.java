@@ -51,9 +51,13 @@ public class Login extends AppCompatActivity {
         loginBtn = findViewById(R.id.loginBtn);
     }
 
-    private boolean validateInputs() {
-        String nickanme = lsNickname.getText().toString().trim();
-        String password = lsPassword.getText().toString().trim();
+    public String getTextAndTrimEditText(EditText editText) {
+        return editText.getText().toString().trim();
+    }
+
+    public boolean validateInputs(EditText nicknameInput, EditText passwordInput) {
+        String nickanme = getTextAndTrimEditText(nicknameInput);
+        String password = getTextAndTrimEditText(passwordInput);
 
         if (nickanme.isEmpty()) {
             lsNickname.setError("Nickname é obrigatório");
@@ -96,7 +100,7 @@ public class Login extends AppCompatActivity {
                 String nickname = lsNickname.getText().toString().trim();
                 String password = lsPassword.getText().toString().trim();
 
-                if (validateInputs()) {
+                if (validateInputs(lsNickname, lsPassword)) {
                     sendLoginRequest(nickname, password);
                 }
             }
