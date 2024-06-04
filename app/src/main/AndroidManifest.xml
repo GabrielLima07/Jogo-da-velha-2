@@ -32,7 +32,7 @@
             android:name=".activities.BackConnection"
             android:exported="false" />
         <activity
-            android:name=".activities.Login"
+            android:name=".activities.GameResultWin"
             android:exported="false" />
         <activity
             android:name=".activities.Game"
@@ -50,7 +50,7 @@
             android:name=".activities.SignUp"
             android:exported="false" />
         <activity
-            android:name=".activities.GameResultWin"
+            android:name=".activities.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

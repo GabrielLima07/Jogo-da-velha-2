@@ -171,8 +171,10 @@ public class MainActivity extends AppCompatActivity {
             if (e == null) {
                 ParseObject match = new ParseObject("Match");
                 match.put("player_x", ParseUser.getCurrentUser());
+                match.put("current_player_id", ParseUser.getCurrentUser().getObjectId());
                 match.put("state", false);
                 match.put("table", table);
+                match.put("boardState", new ArrayList<>(Collections.nCopies(25, "")));
                 table.put("match", match);
 
                 match.saveInBackground(e1 -> {

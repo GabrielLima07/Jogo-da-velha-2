@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import com.example.jogo_da_velha_2.R;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import java.util.Objects;
 
@@ -48,13 +49,13 @@ public class Loading extends AppCompatActivity {
             public void run() {
                 if (!hasGameStarted) {
                     checkMatchState();
-                    handler.postDelayed(this, 5000);  
+                    handler.postDelayed(this, 5000);
                 }
             }
         };
         handler.post(runnable);
     }
-    
+
     private void checkMatchState() {
         if (hasGameStarted) {
             return;
@@ -67,7 +68,10 @@ public class Loading extends AppCompatActivity {
             if (e == null) {
                 if (match != null && match.getBoolean("state")) {
                     hasGameStarted = true;
-                    navigateToGame(matchId);
+                    ParseUser playerX = match.getParseUser("player_x");
+                    ParseUser playerO = match.getParseUser("player_o");
+                    String tableId = match.getParseObject("table").getObjectId();
+                    navigateToGame(matchId, playerX.getObjectId(), playerO.getObjectId(), tableId);
                 }
             } else {
                 e.printStackTrace();
@@ -75,9 +79,12 @@ public class Loading extends AppCompatActivity {
         });
     }
 
-    private void navigateToGame(String matchId) {
+    private void navigateToGame(String matchId, String playerXId, String playerOId, String tableId) {
         Intent intent = new Intent(Loading.this, Game.class);
         intent.putExtra("matchId", matchId);
+        intent.putExtra("playerXId", playerXId);
+        intent.putExtra("playerOId", playerOId);
+        intent.putExtra("tableId", tableId);
         startActivity(intent);
         finish();
     }
