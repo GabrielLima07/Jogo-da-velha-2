@@ -31,7 +31,7 @@ android {
 dependencies {
 
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.11.0")
+    implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.activity:activity:1.8.0")
     testImplementation("junit:junit:4.13.2")
@@ -39,6 +39,13 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.github.parse-community.Parse-SDK-Android:parse:1.26.0")
     implementation("com.github.parse-community:ParseLiveQuery-Android:1.2.2")
+    // Dependência principal do Mockito
+    testImplementation("org.mockito:mockito-core:5.12.0")
+    // Dependência do Mockito para testes no Android
+    androidTestImplementation("org.mockito:mockito-android:2.28.2")
+    // Dependência do Mockito para ser possível mockar classes e métodos constantes
+    testImplementation("org.mockito:mockito-inline:2.28.2")
+    androidTestImplementation("androidx.test:runner:1.5.2")
 
     // Adicionando biblioteca do cardview
     implementation("androidx.cardview:cardview:1.0.0")
