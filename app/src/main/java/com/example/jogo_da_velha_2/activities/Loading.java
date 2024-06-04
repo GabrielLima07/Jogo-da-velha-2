@@ -46,7 +46,7 @@ public class Loading extends AppCompatActivity {
             public void onClick(View v) {
                 hasGameStarted = true;
         
-                Intent intent = new Intent(Loading.this, TelaInicial.class);
+                Intent intent = new Intent(Loading.this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
