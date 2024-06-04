@@ -72,7 +72,7 @@ public class SignUp extends AppCompatActivity {
         signupbtn = findViewById(R.id.signupbtn);
     }
 
-    private boolean isValidEmail(String email) {
+    public boolean isValidEmail(String email) {
         Pattern pattern = Pattern.compile("^[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+$");
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
