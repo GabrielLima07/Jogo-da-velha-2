@@ -18,7 +18,8 @@
         android:drawableLeft="@drawable/close"
         android:textColor="#000000" />
     <Button
-        android:id="@+id/buttonshare"
+
+        android:id="@+id/buttonCompartilhar"
         android:layout_width="89dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="255dp"
@@ -52,7 +53,7 @@
     <Button
         android:id="@+id/buttonContinue"
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/resultgame"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
@@ -63,7 +64,9 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@android:color/darker_gray"
         android:text="Continue"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+
+        />
 
 
 </RelativeLayout>

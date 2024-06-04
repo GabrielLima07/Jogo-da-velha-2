@@ -21,7 +21,7 @@
         android:textSize="35dp" />
 
     <Button
-        android:id="@+id/buttonshare"
+        android:id="@+id/buttonCompartilhar"
         android:layout_width="89dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="255dp"

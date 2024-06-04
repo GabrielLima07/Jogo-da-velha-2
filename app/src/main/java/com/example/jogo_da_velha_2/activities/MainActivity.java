@@ -63,9 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void ranking() {
         Button ranking_btn = findViewById(R.id.rankingBtn);
-
         Intent i = new Intent(this, Ranking.class);
-
         ranking_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
