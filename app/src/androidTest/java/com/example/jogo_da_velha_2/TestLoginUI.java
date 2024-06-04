@@ -58,4 +58,18 @@ public class TestLoginUI {
                 .check(matches(ViewMatchers.isDisplayed()));
     }
 
+    @Test
+    public void testLoginWithWrongPassword() throws InterruptedException {
+        onView(withId(R.id.lsNickname)).perform(replaceText("teste"));
+
+        onView(withId(R.id.lsPassword)).perform(replaceText("superSecretPassword"));
+
+        onView(withId(R.id.loginBtn)).perform(click());
+
+        Thread.sleep(7000);
+
+        onView(withId(R.id.lsLayout))
+                .check(matches(ViewMatchers.isDisplayed()));
+    }
+
 }
